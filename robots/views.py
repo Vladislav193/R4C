@@ -1,10 +1,11 @@
 import json
 
 from django.http import JsonResponse
-from django.shortcuts import render
 from .models import Robot
+from django.views.decorators.csrf import csrf_exempt
 
 
+@csrf_exempt
 def created_robots(request):
     if request.method == 'POST':
         body = json.loads(request.body)
